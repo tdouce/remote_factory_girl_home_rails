@@ -42,11 +42,9 @@ Configure in `config/routes.rb`
 
 ```ruby
 YourApplication::Application.routes.draw do
-
   if defined?(RemoteFactoryGirlHomeRails::Engine)
     mount RemoteFactoryGirlHomeRails::Engine, at: '/remote_factory_girl' 
   end
-
 end
 ```
 
