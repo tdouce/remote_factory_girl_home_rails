@@ -1,7 +1,7 @@
 module RemoteFactoryGirlHomeRails
   class HomeController < ApplicationController 
 
-    # TODO provide methods to skip in initialization
+    # TODO provide methods to skip in Rails initialization process
     skip_before_action :authenticate
 
     def create 
