@@ -7,15 +7,17 @@ require "remote_factory_girl_home_rails/version"
 Gem::Specification.new do |s|
   s.name        = "remote_factory_girl_home_rails"
   s.version     = RemoteFactoryGirlHomeRails::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of RemoteFactoryGirlHomeRails."
-  s.description = "TODO: Description of RemoteFactoryGirlHomeRails."
+  s.authors     = ["Travis Douce"]
+  s.email       = ["travisdouce@gmail.com"]
+  s.homepage    = ""
+  s.summary     = ""
+  s.description = ""
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
-  s.add_dependency "rails", "~> 4.0.4"
+  s.add_dependency "rails", "~> 4.0.2"
 
   s.add_development_dependency "sqlite3"
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'factory_girl_rails'
 end
