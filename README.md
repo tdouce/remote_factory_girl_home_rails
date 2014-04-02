@@ -46,7 +46,7 @@ Configure in `config/environments/*.rb`
 
 Activate remote_factory_girl_home_rails to run in the environments in which it is intended to
 run. For example, if remote_factory_girl_home_rails is included in `group
-:test', then activate in `config/environments/test.rb`
+:test` (most common), then activate in `config/environments/test.rb`
 
 ```ruby
 RemoteFactoryGirlHomeRails.enable!
