@@ -56,8 +56,8 @@ Configure in `config/initializers/remote_factory_girl_home_rails` any methods
 that should be skipped (leveraging Rail's `skip_before_filter`) in
 `RemoteFactoryGirlHomeRails::HomeController`. 
 
-```
-  RemoteFactoryGirlHomeRails.skip_before_filter = [:authenticate, :some_other_method]
+```ruby
+RemoteFactoryGirlHomeRails.skip_before_filter = [:authenticate, :some_other_method]
 ```
 
 ## Run tests
