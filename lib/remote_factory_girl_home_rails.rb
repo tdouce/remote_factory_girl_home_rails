@@ -4,6 +4,6 @@ module RemoteFactoryGirlHomeRails
   mattr_accessor :skip_before_filter
 
   def self.skip_before_filters
-    [RemoteFactoryGirlHomeRails.skip_before_filter].flatten.map {|a| a.to_sym}
+    skip_before_filter.present? ? [skip_before_filter].flatten.map {|a| a.to_sym} : nil
   end
 end
