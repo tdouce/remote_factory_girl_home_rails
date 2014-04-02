@@ -52,7 +52,7 @@ YourApplication::Application.routes.draw do
 end
 ```
 
-Configure in `config/initializers/remote_factory_girl_home_rails` 
+Configure in `config/initializers/remote_factory_girl_home_rails.rb` 
 
 Specify any methods that should be skipped in `RemoteFactoryGirlHomeRails::HomeController`. 
 
