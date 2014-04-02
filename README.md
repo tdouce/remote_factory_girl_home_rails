@@ -30,7 +30,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 group :test do
-  gem 'remote_factory_girl_home'
+  gem 'remote_factory_girl_home_rails'
 end
 ```
 
