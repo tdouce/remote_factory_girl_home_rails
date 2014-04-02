@@ -4,8 +4,18 @@ module RemoteFactoryGirlHomeRails
     skip_before_filter *RemoteFactoryGirlHomeRails.skip_before_filters
     
     def create 
-      factory = FactoryGirl.create(params['factory'].to_sym, params['attributes'])
-      render json: factory
+      if RemoteFactoryGirlHomeRails.enabled?
+        factory = FactoryGirl.create(factory(params), params['attributes'])
+        render json: factory
+      else
+        render json: { status: 403 }, status: 403 
+      end
+    end
+
+    private
+
+    def factory(params)
+      params['factory'].to_sym
     end
   end
 end
