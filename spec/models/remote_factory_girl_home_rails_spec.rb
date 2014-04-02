@@ -2,8 +2,6 @@ require 'spec_helper'
 
 describe RemoteFactoryGirlHomeRails do
 
-  before { RemoteFactoryGirlHomeRails.reset }
-
   describe '.enable!' do
     it 'should return true when enabled' do
       RemoteFactoryGirlHomeRails.enable!
