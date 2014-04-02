@@ -78,7 +78,7 @@ RemoteFactoryGirlHomeRails.skip_before_filter = [:authenticate, :some_other_meth
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/remote_factory_girl_home/fork )
+1. Fork it ( http://github.com/<my-github-username>/remote_factory_girl_home_rails/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
