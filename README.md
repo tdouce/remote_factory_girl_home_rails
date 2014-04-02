@@ -1,6 +1,6 @@
 # RemoteFactoryGirlHomeRails
 
-Create [FactoryGirl](https://github.com/thoughtbot/factory_girl) factories
+Create [factory_girl](https://github.com/thoughtbot/factory_girl) factories
 remotely using remote_factory_girl_home_rails in conjuction with [remote_factory_girl](https://github.com/tdouce/remote_factory_girl). 
 
 remote_factory_girl_home_rails should live in the *home* application (the app with
