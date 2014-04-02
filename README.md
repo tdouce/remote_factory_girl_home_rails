@@ -1,7 +1,11 @@
 # RemoteFactoryGirlHomeRails
 
 Create [FactoryGirl](https://github.com/thoughtbot/factory_girl) factories
-remotely using [RemoteFactoryGirl](https://github.com/tdouce/remote_factory_girl). 
+remotely using remote_factory_girl_home_rails in conjuction with [remote_factory_girl](https://github.com/tdouce/remote_factory_girl). 
+
+remote_factory_girl_home_rails should live in the *home* application (the app with
+factory_girl factories) and [remote_factory_girl](https://github.com/tdouce/remote_factory_girl)
+lives in the client app (the app that is a client/dependency of the *home* app).
 
 Integration testing SOA (Software Oriented Architecture) apps is an inherently 
 difficult problem (Rails apps included :). SOA is comprised of multiple applications, 
@@ -15,8 +19,8 @@ create the data you need when you need it because the database you need to creat
 resides in another application.  It is possible to create test data in traditional apps (apps 
 that contain a database) with tools such as [FactoryGirl](https://github.com/thoughtbot/factory_girl). 
 However, in SOA apps FactoryGirl alone does not suffice. RemoteFactoryGirlHome
-when used in conjunction with [RemoteFactoryGirl](https://github.com/tdouce/remote_factory_girl),
-builds on top of [FactoryGirl](https://github.com/thoughtbot/factory_girl) (because
+when used in conjunction with [remote_factory_girl](https://github.com/tdouce/remote_factory_girl),
+builds on top of [factory_girl](https://github.com/thoughtbot/factory_girl) (because
 we all work on the backs of giants) and provides a mechanism to create the data you need 
 when you need it in the *home* app from a client app.
 
