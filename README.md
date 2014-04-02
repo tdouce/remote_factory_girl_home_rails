@@ -52,9 +52,9 @@ YourApplication::Application.routes.draw do
 end
 ```
 
-Configure in `config/initializers/remote_factory_girl_home_rails` any methods
-that should be skipped (leveraging Rail's `skip_before_filter`) in
-`RemoteFactoryGirlHomeRails::HomeController`. 
+Configure in `config/initializers/remote_factory_girl_home_rails` 
+
+Place any methods that should be skipped in `RemoteFactoryGirlHomeRails::HomeController` (leveraging Rail's `skip_before_filter`). 
 
 ```ruby
 RemoteFactoryGirlHomeRails.skip_before_filter = [:authenticate, :some_other_method]
