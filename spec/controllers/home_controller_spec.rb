@@ -1,5 +1,11 @@
 require 'spec_helper'
 
+class FactoryGirl
+  def self.create(factory, opts = {})
+    true
+  end
+end
+
 describe RemoteFactoryGirlHomeRails::HomeController do
 
   routes { RemoteFactoryGirlHomeRails::Engine.routes }
