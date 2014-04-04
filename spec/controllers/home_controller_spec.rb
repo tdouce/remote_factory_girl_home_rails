@@ -18,7 +18,7 @@ describe RemoteFactoryGirlHomeRails::HomeController do
 
     it 'should return status code 200 when RemoteFactoryGirlHomeRails is enabled' do
       controller.stub(:factory)
-      FactoryGirl.stub(:create).and_return({:factory => 'user', :attributes => {}})
+      FactoryGirl.stub(:create)
       RemoteFactoryGirlHomeRails.enable!
       post :create, {}
       expect(response.status).to eq(200)
