@@ -8,7 +8,8 @@ module RemoteFactoryGirlHomeRails
         factory = FactoryGirl.create(factory(params), attributes(params))
         render json: factory
       else
-        render json: { status: 403 }, status: 403 
+        forbidden = 403
+        render json: { status: forbidden }, status: forbidden 
       end
     end
 
