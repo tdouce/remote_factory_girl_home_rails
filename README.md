@@ -49,7 +49,11 @@ run. For example, if remote_factory_girl_home_rails is included in `group
 :test` (most common), then activate in `config/environments/test.rb`
 
 ```ruby
-RemoteFactoryGirlHomeRails.enable!
+YourApplication::Application.configure do
+  ...
+  config.remote_factory_girl_home_rails.enable = true
+  ...
+end
 ```
 
 Configure in `config/routes.rb`
@@ -67,7 +71,9 @@ Configure in `config/initializers/remote_factory_girl_home_rails.rb`
 Specify any methods that should be skipped in `RemoteFactoryGirlHomeRails::HomeController`. 
 
 ```ruby
-RemoteFactoryGirlHomeRails.skip_before_filter = [:authenticate, :some_other_method]
+RemoteFactoryGirlHomeRails.configure do |config|
+  config.skip_before_filter = [:authenticate, :some_other_method]
+end if defined?(RemoteFactoryGirlHomeRails)
 ```
 
 ## Run tests
