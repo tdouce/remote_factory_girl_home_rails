@@ -1,7 +1,7 @@
 module RemoteFactoryGirlHomeRails
   class HomeController < ApplicationController 
 
-    skip_before_filter *RemoteFactoryGirlHomeRails.skip_before_filters
+    skip_before_filter *RemoteFactoryGirlHomeRails.skip_before_filter
     
     def create 
       if RemoteFactoryGirlHomeRails.enabled?

@@ -2,29 +2,36 @@ require "remote_factory_girl_home_rails/engine"
 
 module RemoteFactoryGirlHomeRails
 
-  OFF     = false
-  ON      = true
-  @enable = OFF
+  OFF = false
+  ON  = true
 
-  mattr_accessor :skip_before_filter
+  def self.skip_before_filter
+    filters = config.skip_before_filter
+    filters.present? ? [filters].flatten.map(&:to_sym) : nil
+  end
 
-  def self.skip_before_filters
-    skip_before_filter.present? ? [skip_before_filter].flatten.map {|a| a.to_sym} : nil
+  def self.config(config = RemoteFactoryGirlHomeRails::Engine.config.remote_factory_girl_home_rails)
+    config
+  end
+
+  def self.configure
+    yield config
   end
 
   def self.enable!
-    @enable = ON 
+    config.enable = ON 
   end
 
   def self.disable!
-    @enable = OFF 
+    config.enable = OFF 
   end
 
   def self.enabled?
-    @enable == ON 
+    config.enable == ON
   end
 
   def self.reset
-    @enable = OFF 
+    config.enable = OFF
+    config.skip_before_filter = nil
   end
 end
