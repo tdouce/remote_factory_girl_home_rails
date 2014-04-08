@@ -1,80 +1,11 @@
 # RemoteFactoryGirlHomeRails
 
-Create [factory_girl](https://github.com/thoughtbot/factory_girl) factories
-remotely using remote_factory_girl_home_rails in conjuction with [remote_factory_girl](https://github.com/tdouce/remote_factory_girl). 
+[factory_girl](https://github.com/thoughtbot/factory_girl) for [Software Oriented Architecture](http://en.wikipedia.org/wiki/Service-oriented_architecture) (SOA). Create [factory_girl](https://github.com/thoughtbot/factory_girl) test data remotely when used in conjunction with [remote_factory_girl](https://github.com/tdouce/remote_factory_girl).
 
-remote_factory_girl_home_rails should live in the *home* application (the app with
-factory_girl factories) and [remote_factory_girl](https://github.com/tdouce/remote_factory_girl)
-lives in the client app (the app that is a client/dependency of the *home* app).
+## Getting Started
 
-Integration testing SOA (Software Oriented Architecture) apps is an inherently 
-difficult problem (Rails apps included :). SOA is comprised of multiple applications, 
-and while individual apps can be tested (and presumably passing) in isolation (usually by 
-mocking http requests), it does not guarantee the apps will work in unison. Testing 
-interactions between apps is more difficult. 
+See [GETTING_STARTED](https://github.com/tdouce/remote_factory_girl/wiki/Getting-Started) for information on installaton and configuration.
 
-One problem with integration testing SOA apps is that it is difficult to write 
-integration tests in the client. Due to the nature of SOA you can not 
-create the data you need when you need it because the database you need to create the data
-resides in another application.  It is possible to create test data in traditional apps (apps 
-that contain a database) with tools such as [FactoryGirl](https://github.com/thoughtbot/factory_girl). 
-However, in SOA apps FactoryGirl alone does not suffice. RemoteFactoryGirlHome
-when used in conjunction with [remote_factory_girl](https://github.com/tdouce/remote_factory_girl),
-builds on top of [factory_girl](https://github.com/thoughtbot/factory_girl) (because
-we all work on the backs of giants) and provides a mechanism to create the data you need 
-when you need it in the *home* app from a client app.
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-group :test do
-  gem 'remote_factory_girl_home_rails'
-end
-```
-
-
-And then execute:
-
-    $ bundle
-
-
-## Usage
-
-Configure in `config/environments/*.rb`
-
-Activate remote_factory_girl_home_rails to run in the environments in which it is intended to
-run. For example, if remote_factory_girl_home_rails is included in `group
-:test` (most common), then activate in `config/environments/test.rb`
-
-```ruby
-YourApplication::Application.configure do
-  ...
-  config.remote_factory_girl_home_rails.enable = true
-  ...
-end
-```
-
-Configure in `config/routes.rb`
-
-```ruby
-YourApplication::Application.routes.draw do
-  if defined?(RemoteFactoryGirlHomeRails::Engine)
-    mount RemoteFactoryGirlHomeRails::Engine, at: '/remote_factory_girl' 
-  end
-end
-```
-
-Configure in `config/initializers/remote_factory_girl_home_rails.rb` 
-
-Specify any methods that should be skipped in `RemoteFactoryGirlHomeRails::HomeController`. 
-
-```ruby
-RemoteFactoryGirlHomeRails.configure do |config|
-  config.skip_before_filter = [:authenticate, :some_other_method]
-end if defined?(RemoteFactoryGirlHomeRails)
-```
 
 ## Run tests
 
