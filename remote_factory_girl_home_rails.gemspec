@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version     = "0.0.1" 
   s.authors     = ["Travis Douce"]
   s.email       = ["travisdouce@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/tdouce/remote_factory_girl_home_rails"
   s.summary     = ""
   s.description = ""
 
