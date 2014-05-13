@@ -1,6 +1,6 @@
 # RemoteFactoryGirlHomeRails
 
-[factory_girl](https://github.com/thoughtbot/factory_girl) for [Software Oriented Architecture](http://en.wikipedia.org/wiki/Service-oriented_architecture) (SOA). Create [factory_girl](https://github.com/thoughtbot/factory_girl) test data remotely when used in conjunction with [remote_factory_girl](https://github.com/tdouce/remote_factory_girl).
+[factory_girl](https://github.com/thoughtbot/factory_girl) for [Service Oriented Architecture](http://en.wikipedia.org/wiki/Service-oriented_architecture) (SOA). Create [factory_girl](https://github.com/thoughtbot/factory_girl) test data remotely when used in conjunction with [remote_factory_girl](https://github.com/tdouce/remote_factory_girl).
 
 ## Getting Started
 
