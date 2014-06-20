@@ -13,6 +13,11 @@ module RemoteFactoryGirlHomeRails
       end
     end
 
+    def index
+      factories = FactoryGirl.factories.map(&:name)
+      render json: { factories: factories }
+    end
+
     private
 
     def factory(params)

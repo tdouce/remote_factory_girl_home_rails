@@ -4,6 +4,13 @@ class FactoryGirl
   def self.create(factory, opts = {})
     true
   end
+
+  def self.factories
+    [
+      OpenStruct.new('name' => 'Sam'),
+      OpenStruct.new('name' => 'Pete')
+    ]
+  end
 end
 
 describe RemoteFactoryGirlHomeRails::HomeController do
@@ -36,6 +43,16 @@ describe RemoteFactoryGirlHomeRails::HomeController do
     it 'should return status code 403 when RemoteFactoryGirlHomeRails is not enabled' do
       post :create, {}
       expect(response.status).to eq(403)
+    end
+  end
+
+  describe '#index' do
+
+    before { RemoteFactoryGirlHomeRails.enable! }
+
+    it 'should return a list of available factories' do
+      get :index
+      expect(response.body).to eq('{"factories":["Sam","Pete"]}')
     end
   end
 end
