@@ -2,7 +2,7 @@ require 'spec_helper'
 
 class FactoryGirl
   def self.create(factory, opts = {})
-    true
+    opts
   end
 
   def self.factories
@@ -20,7 +20,7 @@ describe RemoteFactoryGirlHomeRails::HomeController do
   describe '#create' do
     describe "when '.skip_before_filter' methods are configured" do
       it 'should skip :authentication and :another_authentication methods defined in ApplicationController' do
-        post :create, {'factory' => 'user', :attributes => {'first_name' => 'Sam'}}
+        post :create, {'factory' => 'user', 'attributes' => {'first_name' => 'Sam'}}
         expect(response).to_not redirect_to('/401.html')
       end
     end
@@ -37,6 +37,11 @@ describe RemoteFactoryGirlHomeRails::HomeController do
       it 'should create a factory' do
         expect(FactoryGirl).to receive(:create).with(:user, {})
         post :create, {'factory' => 'user'}
+      end
+
+      it 'should return a JSON response' do
+        post :create, {'factory' => 'user', 'attributes' => {'first_name' => 'Sam'}}
+        expect(response.body).to eq('{"first_name":"Sam"}')
       end
     end
 
