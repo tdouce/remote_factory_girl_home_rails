@@ -26,7 +26,8 @@ describe RemoteFactoryGirlHomeRails::HomeController do
     end
 
     describe 'when enabled' do
-
+      let(:user) { double("instance of User model") }
+      let(:user_json) { { "user" => "whatever" }.to_json }
       before { RemoteFactoryGirlHomeRails.enable! }
 
       it 'should return status code 200' do
@@ -37,6 +38,13 @@ describe RemoteFactoryGirlHomeRails::HomeController do
       it 'should create a factory' do
         expect(FactoryGirl).to receive(:create).with(:user, {})
         post :create, {'factory' => 'user'}
+      end
+
+      it "should serialize the new User model with #to_json" do
+        expect(FactoryGirl).to receive(:create).with(any_args).and_return(user)
+        expect(user).to receive(:to_json).and_return(user_json)
+        post :create, "factory" => "user"
+        expect(response.body).to eql(user_json)
       end
     end
 
