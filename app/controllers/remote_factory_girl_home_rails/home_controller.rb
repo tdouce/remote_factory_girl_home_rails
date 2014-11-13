@@ -5,8 +5,8 @@ module RemoteFactoryGirlHomeRails
     
     def create 
       if RemoteFactoryGirlHomeRails.enabled?
-        factory = FactoryGirl.create(factory(params), attributes(params))
-        render json: factory.attributes
+        resource = FactoryGirl.create(factory(params), attributes(params))
+        render json: resource.attributes
       else
         forbidden = 403
         render json: { status: forbidden }, status: forbidden 
