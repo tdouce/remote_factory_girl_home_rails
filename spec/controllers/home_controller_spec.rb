@@ -38,11 +38,6 @@ describe RemoteFactoryGirlHomeRails::HomeController do
         expect(FactoryGirl).to receive(:create).with(:user, {})
         post :create, {'factory' => 'user'}
       end
-
-      it 'should return a JSON response' do
-        post :create, {'factory' => 'user', 'attributes' => {'first_name' => 'Sam'}}
-        expect(response.body).to eq('{"first_name":"Sam"}')
-      end
     end
 
     it 'should return status code 403 when RemoteFactoryGirlHomeRails is not enabled' do

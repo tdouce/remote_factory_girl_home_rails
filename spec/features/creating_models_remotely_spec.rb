@@ -8,4 +8,8 @@ describe 'Creating models remotely' do
     end
   end
 
+  it 'should return a JSON response' do
+    post "/remote_factory_girl_home_rails/home", {'factory' => 'user', 'attributes' => {'first_name' => 'Sam'}}
+    expect(response.body).to eq('{"first_name":"Sam"}')
+  end
 end
