@@ -1,18 +1,5 @@
 require 'spec_helper'
 
-class FactoryGirl
-  def self.create(factory, opts = {})
-    opts
-  end
-
-  def self.factories
-    [
-      OpenStruct.new('name' => 'Sam'),
-      OpenStruct.new('name' => 'Pete')
-    ]
-  end
-end
-
 describe RemoteFactoryGirlHomeRails::HomeController do
 
   routes { RemoteFactoryGirlHomeRails::Engine.routes }
