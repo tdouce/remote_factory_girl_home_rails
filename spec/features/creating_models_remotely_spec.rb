@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'active_model_serializers'
 
 describe 'Creating models remotely' do
   before do
