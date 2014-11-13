@@ -1,4 +1,9 @@
 require 'spec_helper'
+class FactoryGirl
+  def self.create(factory, opts = {})
+    User.create(opts)
+  end
+end
 
 describe 'Creating models remotely' do
   before do
