@@ -22,7 +22,7 @@ describe RemoteFactoryGirlHomeRails::HomeController do
       end
 
       it 'should create a factory' do
-        expect(FactoryGirl).to receive(:create).with(:user, {})
+        expect(FactoryGirl).to receive(:create).with(:user, {}).and_return(FactoryGirl.create(:user))
         post :create, {'factory' => 'user'}
       end
     end
