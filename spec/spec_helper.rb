@@ -27,3 +27,7 @@ FactoryGirl.define do
     sequence(:first_name){ |n| "Bob #{n}" }
   end
 end
+
+def response_json(json)
+  JSON.parse(json)
+end
