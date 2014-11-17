@@ -4,6 +4,7 @@ require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'factory_girl_rails'
+require File.expand_path("../dummy/spec/factories.rb",  __FILE__)
 
 Rails.backtrace_cleaner.remove_silencers!
 
@@ -19,12 +20,6 @@ RSpec.configure do |config|
 
   config.before(:each) do
     RemoteFactoryGirlHomeRails.reset
-  end
-end
-
-FactoryGirl.define do
-  factory :user do
-    sequence(:first_name){ |n| "Bob #{n}" }
   end
 end
 
