@@ -1,18 +1,5 @@
 require 'spec_helper'
 
-class FactoryGirl
-  def self.create(factory, opts = {})
-    opts
-  end
-
-  def self.factories
-    [
-      OpenStruct.new('name' => 'Sam'),
-      OpenStruct.new('name' => 'Pete')
-    ]
-  end
-end
-
 describe RemoteFactoryGirlHomeRails::HomeController do
 
   routes { RemoteFactoryGirlHomeRails::Engine.routes }
@@ -34,30 +21,15 @@ describe RemoteFactoryGirlHomeRails::HomeController do
         expect(response.status).to eq(200)
       end
 
-      it 'should create a factory' do
-        expect(FactoryGirl).to receive(:create).with(:user, {})
+      it 'should create a user resource with FactoryGirl' do
+        expect(FactoryGirl).to receive(:create).with(:user, {}).and_return(User.create)
         post :create, {'factory' => 'user'}
-      end
-
-      it 'should return a JSON response' do
-        post :create, {'factory' => 'user', 'attributes' => {'first_name' => 'Sam'}}
-        expect(response.body).to eq('{"first_name":"Sam"}')
       end
     end
 
     it 'should return status code 403 when RemoteFactoryGirlHomeRails is not enabled' do
       post :create, {}
       expect(response.status).to eq(403)
-    end
-  end
-
-  describe '#index' do
-
-    before { RemoteFactoryGirlHomeRails.enable! }
-
-    it 'should return a list of available factories' do
-      get :index
-      expect(response.body).to eq('{"factories":["Sam","Pete"]}')
     end
   end
 end
