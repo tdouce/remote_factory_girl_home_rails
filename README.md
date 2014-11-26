@@ -1,4 +1,5 @@
 # RemoteFactoryGirlHomeRails
+[![Build Status](https://travis-ci.org/tdouce/remote_factory_girl_home_rails.svg)](https://travis-ci.org/tdouce/remote_factory_girl_home_rails)
 
 [factory_girl](https://github.com/thoughtbot/factory_girl) for [Service Oriented Architecture](http://en.wikipedia.org/wiki/Service-oriented_architecture) (SOA). Create test data with [factory_girl](https://github.com/thoughtbot/factory_girl) remotely when used in conjunction with [remote_factory_girl](https://github.com/tdouce/remote_factory_girl).
 
